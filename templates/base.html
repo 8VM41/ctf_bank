@@ -30,7 +30,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">{{ user.username }} |
                                     {{ account_rub_balance.balance }} {{ account_rub_balance.currency_name }}<span
-                                        class="caret"></span></a>
+                                            class="caret"></span></a>
                                 <ul class="dropdown-menu list-group">
                                     {% if account_balance %}
                                         <li class="dropdown-header">Баланс счета:</li>
@@ -47,18 +47,21 @@
                             <li><a href="{% url 'user_login' %}">Вход</a></li>
                         {% endif %}
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Операции<span class="caret"></span></a>
+                                   aria-haspopup="true" aria-expanded="false">Операции<span
+                                        class="caret"></span></a>
                                 <ul class="dropdown-menu list-group">
                                     <li><a href="{% url 'loan_request' %}">Запрос кредита</a></li>
                                     <li><a href="{% url "exchange" %}">Конвертация</a></li>
                                     <li><a href="{% url "gift_card" %}">Подарочная карта</a></li>
                                 </ul>
                             </li>
-                    </ul>
-                {% block nav_menu %}{% endblock %}
+                        </ul>
+                    {% endif %}
+                    {% block nav_menu %}{% endblock %}
                 </div><!--/.nav-collapse -->
             </div>
         </nav>

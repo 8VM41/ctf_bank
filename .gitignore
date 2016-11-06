@@ -1,3 +1,5 @@
 migrations/
 .idea/
 settings.py
+/requirements.txt
+/check_csrf.js

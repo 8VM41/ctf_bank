@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% block head %}{% load bootstrap %}{% endblock %}
 {% block content %}
     <form class="form-signin login-form" name="user-login-form" action="{% url 'user_login' %}" method="post">
         {% csrf_token %}

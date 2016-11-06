@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'account',
     'gift_card',
     'snowpenguin.django.recaptcha2',
-    'bootstrapform',
 ]
 
 MIDDLEWARE = [

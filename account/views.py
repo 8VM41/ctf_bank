@@ -85,8 +85,10 @@ def loan_request(request):
                     account_from = Transaction.objects.get(id=loan_id).account_from
                     Account.objects.filter(user=account_from.user, currency=Currency.objects.get(short_name='RUB')).update(
                         balance=F('balance') + Transaction.objects.get(id=loan_id).amount)
-                elif 'loan_decline' in request.POST:
-                    Transaction.objects.filter(id=loan_id).update(status=3)
+
+                # decline functionality could potentially be exploited by participants (DoS)
+                #elif 'loan_decline' in request.POST:
+                #    Transaction.objects.filter(id=loan_id).update(status=3)
         return render(request, 'loan_approve.html', {'loans': loans})
 
 

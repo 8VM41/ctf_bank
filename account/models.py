@@ -34,7 +34,7 @@ class Transaction(models.Model):
     message = models.CharField(max_length=2000, null=True)
 
     def __unicode__(self):
-        return "%s -> %s | type: %s | status: %s" % (self.user_from, self.user_to, self.type, self.status)
+        return "%s -> %s | type: %s | status: %s" % (self.account_from, self.account_to, self.type, self.status)
 
 
 class ExchangeRate(models.Model):
